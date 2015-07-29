@@ -73,10 +73,10 @@
 		3236230A1B68D0B10041678C /* MenuMirror */ = {
 			isa = PBXGroup;
 			children = (
-				3236230D1B68D0B10041678C /* AppDelegate.swift */,
+				3236230B1B68D0B10041678C /* Supporting Files */,
 				3236230F1B68D0B10041678C /* Images.xcassets */,
 				323623111B68D0B10041678C /* MainMenu.xib */,
-				3236230B1B68D0B10041678C /* Supporting Files */,
+				3236230D1B68D0B10041678C /* AppDelegate.swift */,
 			);
 			path = MenuMirror;
 			sourceTree = "<group>";

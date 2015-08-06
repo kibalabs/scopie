@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "323623071B68D0B10041678C"
-               BuildableName = "MenuMirror.app"
-               BlueprintName = "MenuMirror"
-               ReferencedContainer = "container:MenuMirror.xcodeproj">
+               BuildableName = "Scopie.app"
+               BlueprintName = "Scopie"
+               ReferencedContainer = "container:Scopie.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "323623171B68D0B20041678C"
                BuildableName = "MenuMirrorTests.xctest"
                BlueprintName = "MenuMirrorTests"
-               ReferencedContainer = "container:MenuMirror.xcodeproj">
+               ReferencedContainer = "container:Scopie.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "323623171B68D0B20041678C"
                BuildableName = "MenuMirrorTests.xctest"
                BlueprintName = "MenuMirrorTests"
-               ReferencedContainer = "container:MenuMirror.xcodeproj">
+               ReferencedContainer = "container:Scopie.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "323623071B68D0B10041678C"
-            BuildableName = "MenuMirror.app"
-            BlueprintName = "MenuMirror"
-            ReferencedContainer = "container:MenuMirror.xcodeproj">
+            BuildableName = "Scopie.app"
+            BlueprintName = "Scopie"
+            ReferencedContainer = "container:Scopie.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "323623071B68D0B10041678C"
-            BuildableName = "MenuMirror.app"
-            BlueprintName = "MenuMirror"
-            ReferencedContainer = "container:MenuMirror.xcodeproj">
+            BuildableName = "Scopie.app"
+            BlueprintName = "Scopie"
+            ReferencedContainer = "container:Scopie.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "323623071B68D0B10041678C"
-            BuildableName = "MenuMirror.app"
-            BlueprintName = "MenuMirror"
-            ReferencedContainer = "container:MenuMirror.xcodeproj">
+            BuildableName = "Scopie.app"
+            BlueprintName = "Scopie"
+            ReferencedContainer = "container:Scopie.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

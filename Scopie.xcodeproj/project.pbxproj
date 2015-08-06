@@ -10,28 +10,27 @@
 		3236230E1B68D0B10041678C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3236230D1B68D0B10041678C /* AppDelegate.swift */; };
 		323623101B68D0B10041678C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3236230F1B68D0B10041678C /* Images.xcassets */; };
 		323623131B68D0B10041678C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 323623111B68D0B10041678C /* MainMenu.xib */; };
-		3236231F1B68D0B20041678C /* MenuMirrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3236231E1B68D0B20041678C /* MenuMirrorTests.swift */; };
+		3250EEE81B68E1A7003D549D /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3250EEE61B68E1A7003D549D /* CameraViewController.swift */; };
+		3250EEE91B68E1A7003D549D /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3250EEE71B68E1A7003D549D /* CameraViewController.xib */; };
+		3250EEEB1B68E31A003D549D /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3250EEEA1B68E31A003D549D /* EventMonitor.swift */; };
+		3250EEED1B68E4D3003D549D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3250EEEC1B68E4D3003D549D /* AVFoundation.framework */; };
+		3250EEEF1B68E4F7003D549D /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3250EEEE1B68E4F7003D549D /* AVKit.framework */; };
+		3250EEFF1B6A506E003D549D /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3250EEFE1B6A506E003D549D /* CameraView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		323623191B68D0B20041678C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 323623001B68D0B10041678C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 323623071B68D0B10041678C;
-			remoteInfo = MenuMirror;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		323623081B68D0B10041678C /* MenuMirror.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuMirror.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		323623081B68D0B10041678C /* Scopie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scopie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3236230C1B68D0B10041678C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3236230D1B68D0B10041678C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3236230F1B68D0B10041678C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		323623121B68D0B10041678C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		323623181B68D0B20041678C /* MenuMirrorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuMirrorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3236231D1B68D0B20041678C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3236231E1B68D0B20041678C /* MenuMirrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuMirrorTests.swift; sourceTree = "<group>"; };
+		3250EEE61B68E1A7003D549D /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		3250EEE71B68E1A7003D549D /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
+		3250EEEA1B68E31A003D549D /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		3250EEEC1B68E4D3003D549D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3250EEEE1B68E4F7003D549D /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		3250EEFD1B697C60003D549D /* Scopie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Scopie.entitlements; sourceTree = "<group>"; };
+		3250EEFE1B6A506E003D549D /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,13 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		323623151B68D0B20041678C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				3250EEEF1B68E4F7003D549D /* AVKit.framework in Frameworks */,
+				3250EEED1B68E4D3003D549D /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,8 +49,8 @@
 		323622FF1B68D0B10041678C = {
 			isa = PBXGroup;
 			children = (
-				3236230A1B68D0B10041678C /* MenuMirror */,
-				3236231B1B68D0B20041678C /* MenuMirrorTests */,
+				3236230A1B68D0B10041678C /* Scopie */,
+				3250EEFC1B692F43003D549D /* Frameworks */,
 				323623091B68D0B10041678C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,21 +58,25 @@
 		323623091B68D0B10041678C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				323623081B68D0B10041678C /* MenuMirror.app */,
-				323623181B68D0B20041678C /* MenuMirrorTests.xctest */,
+				323623081B68D0B10041678C /* Scopie.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3236230A1B68D0B10041678C /* MenuMirror */ = {
+		3236230A1B68D0B10041678C /* Scopie */ = {
 			isa = PBXGroup;
 			children = (
+				3250EEFD1B697C60003D549D /* Scopie.entitlements */,
 				3236230B1B68D0B10041678C /* Supporting Files */,
 				3236230F1B68D0B10041678C /* Images.xcassets */,
 				323623111B68D0B10041678C /* MainMenu.xib */,
 				3236230D1B68D0B10041678C /* AppDelegate.swift */,
+				3250EEE61B68E1A7003D549D /* CameraViewController.swift */,
+				3250EEE71B68E1A7003D549D /* CameraViewController.xib */,
+				3250EEEA1B68E31A003D549D /* EventMonitor.swift */,
+				3250EEFE1B6A506E003D549D /* CameraView.swift */,
 			);
-			path = MenuMirror;
+			path = Scopie;
 			sourceTree = "<group>";
 		};
 		3236230B1B68D0B10041678C /* Supporting Files */ = {
@@ -89,29 +87,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3236231B1B68D0B20041678C /* MenuMirrorTests */ = {
+		3250EEFC1B692F43003D549D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3236231E1B68D0B20041678C /* MenuMirrorTests.swift */,
-				3236231C1B68D0B20041678C /* Supporting Files */,
+				3250EEEE1B68E4F7003D549D /* AVKit.framework */,
+				3250EEEC1B68E4D3003D549D /* AVFoundation.framework */,
 			);
-			path = MenuMirrorTests;
-			sourceTree = "<group>";
-		};
-		3236231C1B68D0B20041678C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3236231D1B68D0B20041678C /* Info.plist */,
-			);
-			name = "Supporting Files";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		323623071B68D0B10041678C /* MenuMirror */ = {
+		323623071B68D0B10041678C /* Scopie */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 323623221B68D0B20041678C /* Build configuration list for PBXNativeTarget "MenuMirror" */;
+			buildConfigurationList = 323623221B68D0B20041678C /* Build configuration list for PBXNativeTarget "Scopie" */;
 			buildPhases = (
 				323623041B68D0B10041678C /* Sources */,
 				323623051B68D0B10041678C /* Frameworks */,
@@ -121,28 +111,10 @@
 			);
 			dependencies = (
 			);
-			name = MenuMirror;
+			name = Scopie;
 			productName = MenuMirror;
-			productReference = 323623081B68D0B10041678C /* MenuMirror.app */;
+			productReference = 323623081B68D0B10041678C /* Scopie.app */;
 			productType = "com.apple.product-type.application";
-		};
-		323623171B68D0B20041678C /* MenuMirrorTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 323623251B68D0B20041678C /* Build configuration list for PBXNativeTarget "MenuMirrorTests" */;
-			buildPhases = (
-				323623141B68D0B20041678C /* Sources */,
-				323623151B68D0B20041678C /* Frameworks */,
-				323623161B68D0B20041678C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3236231A1B68D0B20041678C /* PBXTargetDependency */,
-			);
-			name = MenuMirrorTests;
-			productName = MenuMirrorTests;
-			productReference = 323623181B68D0B20041678C /* MenuMirrorTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -155,14 +127,16 @@
 				TargetAttributes = {
 					323623071B68D0B10041678C = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					323623171B68D0B20041678C = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 323623071B68D0B10041678C;
+						DevelopmentTeam = N4Q3FW7JKE;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
-			buildConfigurationList = 323623031B68D0B10041678C /* Build configuration list for PBXProject "MenuMirror" */;
+			buildConfigurationList = 323623031B68D0B10041678C /* Build configuration list for PBXProject "Scopie" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -175,8 +149,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				323623071B68D0B10041678C /* MenuMirror */,
-				323623171B68D0B20041678C /* MenuMirrorTests */,
+				323623071B68D0B10041678C /* Scopie */,
 			);
 		};
 /* End PBXProject section */
@@ -186,15 +159,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3250EEE91B68E1A7003D549D /* CameraViewController.xib in Resources */,
 				323623101B68D0B10041678C /* Images.xcassets in Resources */,
 				323623131B68D0B10041678C /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		323623161B68D0B20041678C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,27 +172,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3250EEEB1B68E31A003D549D /* EventMonitor.swift in Sources */,
 				3236230E1B68D0B10041678C /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		323623141B68D0B20041678C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3236231F1B68D0B20041678C /* MenuMirrorTests.swift in Sources */,
+				3250EEE81B68E1A7003D549D /* CameraViewController.swift in Sources */,
+				3250EEFF1B6A506E003D549D /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3236231A1B68D0B20041678C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 323623071B68D0B10041678C /* MenuMirror */;
-			targetProxy = 323623191B68D0B20041678C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		323623111B68D0B10041678C /* MainMenu.xib */ = {
@@ -323,10 +277,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Scopie/Scopie.entitlements;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = MenuMirror/Info.plist;
+				INFOPLIST_FILE = Scopie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -334,53 +292,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Scopie/Scopie.entitlements;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = MenuMirror/Info.plist;
+				INFOPLIST_FILE = Scopie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		323623261B68D0B20041678C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MenuMirrorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MenuMirror.app/Contents/MacOS/MenuMirror";
-			};
-			name = Debug;
-		};
-		323623271B68D0B20041678C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MenuMirrorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MenuMirror.app/Contents/MacOS/MenuMirror";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		323623031B68D0B10041678C /* Build configuration list for PBXProject "MenuMirror" */ = {
+		323623031B68D0B10041678C /* Build configuration list for PBXProject "Scopie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				323623201B68D0B20041678C /* Debug */,
@@ -389,21 +315,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		323623221B68D0B20041678C /* Build configuration list for PBXNativeTarget "MenuMirror" */ = {
+		323623221B68D0B20041678C /* Build configuration list for PBXNativeTarget "Scopie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				323623231B68D0B20041678C /* Debug */,
 				323623241B68D0B20041678C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		323623251B68D0B20041678C /* Build configuration list for PBXNativeTarget "MenuMirrorTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				323623261B68D0B20041678C /* Debug */,
-				323623271B68D0B20041678C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

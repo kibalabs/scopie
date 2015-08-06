@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="15A226f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CameraViewController" customModule="MenuMirror" customModuleProvider="target">
+            <connections>
+                <outlet property="conTopBarTop" destination="0LI-Ol-K0r" id="881-87-JE7"/>
+                <outlet property="vCameraOutput" destination="NR6-SW-N2A" id="2kn-mz-SSk"/>
+                <outlet property="vTopBar" destination="Sp1-gB-XU0" id="pxg-Sc-Mmh"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="NR6-SW-N2A" customClass="CameraView" customModule="MenuMirror" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+                    <animations/>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Sp1-gB-XU0">
+                    <rect key="frame" x="0.0" y="232" width="480" height="40"/>
+                    <subviews>
+                        <button springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bRe-lU-2cz">
+                            <rect key="frame" x="0.0" y="10" width="40" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="lg3-fo-Z9f"/>
+                            </constraints>
+                            <animations/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="icon_quit" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="jc8-dS-tmM">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="alphaValue">
+                                    <real key="value" value="0.69999999999999996"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didTapQuit:" target="-2" id="RBj-hy-eew"/>
+                            </connections>
+                        </button>
+                        <button springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="anZ-Lc-4ex">
+                            <rect key="frame" x="440" y="0.0" width="40" height="40"/>
+                            <animations/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="icon_folder" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="zOV-on-4lZ">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                                <connections>
+                                    <action selector="didTapOpenFolder:" target="-2" id="6wy-Pf-mtL"/>
+                                </connections>
+                            </buttonCell>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="alphaValue">
+                                    <real key="value" value="0.80000000000000004"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button translatesAutoresizingMaskIntoConstraints="NO" id="D4k-tL-lph">
+                            <rect key="frame" x="80" y="0.0" width="320" height="40"/>
+                            <animations/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="logo" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="udv-oi-tr2">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="KKe-O4-hs5">
+                            <rect key="frame" x="40" y="0.0" width="40" height="40"/>
+                            <animations/>
+                        </customView>
+                        <button springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y49-PR-Ak0">
+                            <rect key="frame" x="400" y="0.0" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Y49-PR-Ak0" secondAttribute="height" multiplier="1:1" id="X00-gC-Msq"/>
+                                <constraint firstAttribute="height" constant="40" id="Ybm-nA-dDG"/>
+                            </constraints>
+                            <animations/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="icon_capture" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="1O3-v6-b32">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="alphaValue">
+                                    <real key="value" value="0.80000000000000004"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didTapCapture:" target="-2" id="qHX-gX-uMm"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Y49-PR-Ak0" secondAttribute="bottom" id="4TY-wL-aDH"/>
+                        <constraint firstItem="anZ-Lc-4ex" firstAttribute="top" secondItem="Sp1-gB-XU0" secondAttribute="top" id="7Tq-9V-czx"/>
+                        <constraint firstItem="bRe-lU-2cz" firstAttribute="leading" secondItem="Sp1-gB-XU0" secondAttribute="leading" id="EWi-YO-KMQ"/>
+                        <constraint firstAttribute="bottom" secondItem="KKe-O4-hs5" secondAttribute="bottom" id="HN9-v4-Bih"/>
+                        <constraint firstItem="bRe-lU-2cz" firstAttribute="width" secondItem="Y49-PR-Ak0" secondAttribute="width" id="KWH-VN-RKz"/>
+                        <constraint firstItem="anZ-Lc-4ex" firstAttribute="leading" secondItem="Y49-PR-Ak0" secondAttribute="trailing" id="MZN-6y-1LH"/>
+                        <constraint firstAttribute="centerY" secondItem="bRe-lU-2cz" secondAttribute="centerY" id="OuN-Hl-6Wj"/>
+                        <constraint firstAttribute="trailing" secondItem="anZ-Lc-4ex" secondAttribute="trailing" id="Wao-Wj-ppZ"/>
+                        <constraint firstItem="D4k-tL-lph" firstAttribute="top" secondItem="Sp1-gB-XU0" secondAttribute="top" id="ZeW-Q9-8cJ"/>
+                        <constraint firstItem="KKe-O4-hs5" firstAttribute="leading" secondItem="bRe-lU-2cz" secondAttribute="trailing" id="bgZ-cT-HEZ"/>
+                        <constraint firstItem="D4k-tL-lph" firstAttribute="leading" secondItem="KKe-O4-hs5" secondAttribute="trailing" id="hB8-Cd-IFz"/>
+                        <constraint firstItem="Y49-PR-Ak0" firstAttribute="leading" secondItem="D4k-tL-lph" secondAttribute="trailing" id="l9W-Je-o8R"/>
+                        <constraint firstItem="KKe-O4-hs5" firstAttribute="top" secondItem="Sp1-gB-XU0" secondAttribute="top" id="rCx-gv-WI3"/>
+                        <constraint firstItem="KKe-O4-hs5" firstAttribute="width" secondItem="Y49-PR-Ak0" secondAttribute="width" id="uLV-jJ-7cy"/>
+                        <constraint firstItem="Y49-PR-Ak0" firstAttribute="top" secondItem="Sp1-gB-XU0" secondAttribute="top" id="unr-Wg-CEs"/>
+                        <constraint firstItem="Y49-PR-Ak0" firstAttribute="width" secondItem="anZ-Lc-4ex" secondAttribute="width" id="wyC-YL-xnD"/>
+                        <constraint firstAttribute="bottom" secondItem="anZ-Lc-4ex" secondAttribute="bottom" id="yPJ-B9-1TN"/>
+                        <constraint firstAttribute="bottom" secondItem="D4k-tL-lph" secondAttribute="bottom" id="z5P-dB-cxz"/>
+                    </constraints>
+                    <animations/>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Sp1-gB-XU0" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="0LI-Ol-K0r"/>
+                <constraint firstAttribute="bottom" secondItem="NR6-SW-N2A" secondAttribute="bottom" id="0x6-IR-juI"/>
+                <constraint firstAttribute="trailing" secondItem="NR6-SW-N2A" secondAttribute="trailing" id="Fc3-f5-xho"/>
+                <constraint firstAttribute="trailing" secondItem="Sp1-gB-XU0" secondAttribute="trailing" id="V7w-sH-sHc"/>
+                <constraint firstItem="NR6-SW-N2A" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="arK-Ld-rzu"/>
+                <constraint firstItem="Sp1-gB-XU0" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="eTA-5X-nTu"/>
+                <constraint firstItem="NR6-SW-N2A" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="u02-T8-DT3"/>
+            </constraints>
+            <animations/>
+            <point key="canvasLocation" x="172" y="170"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="icon_capture" width="25" height="25"/>
+        <image name="icon_folder" width="25" height="25"/>
+        <image name="icon_quit" width="25" height="25"/>
+        <image name="logo" width="128" height="128"/>
+    </resources>
+</document>

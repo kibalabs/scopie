@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MenuMirror.xcodeproj">
+      location = "self:/Users/krishan/MacProjects/MenuMirror/Scopie.xcodeproj">
    </FileRef>
 </Workspace>

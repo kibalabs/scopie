@@ -1,0 +1,248 @@
+<html>
+
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+
+    <title>Scopie for Mac - Check yourself out, discretely.</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Scopie is the fastest, most discrete way to check yourself out on your mac. Worried your hair is slightly off? Check Scopie! Think someone is making faces behind you? Catch 'em with Scopie! Or just like looking at yourself? Hey, we're not here to judge - pop open Scopie and 'mir away ;)">
+    <meta name="keywords" content="mac,camera,app,mirror,scope,glance,hair,hairstyle">
+    <meta name="author" content="Krishan Patel (krishan711)">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ScopieApp">
+    <meta name="twitter:creator" content="@krishan711">
+    <meta name="twitter:title" content="Scopie for Mac - Check yourself out, discretely.">
+    <meta name="twitter:description" content="Scopie is the fastest, most discrete way to check yourself out on your mac. Worried your hair is slightly off? Check Scopie! Or just like looking at yourself? Hey, we're not here to judge - pop open Scopie and 'mir away ;)">
+    <meta name="twitter:image" content="http://scopieapp.com/img/promo.jpg">
+
+    <meta property="og:url" content="http://www.scopieapp.com">
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Scopie for Mac - Check yourself out, discretely.">
+    <meta property="og:description" content="Scopie is the fastest, most discrete way to check yourself out on your mac. Worried your hair is slightly off? Check Scopie! Think someone is making faces behind you? Catch 'em with Scopie! Or just like looking at yourself? Hey, we're not here to judge - pop open Scopie and 'mir away ;)">
+    <meta property="og:image" content="http://scopieapp.com/img/promo.jpg">
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/favicons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="img/favicons/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="img/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="img/favicons/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="img/favicons/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="img/favicons/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="img/favicons/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="img/favicons/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="img/favicons/mstile-310x310.png" />
+
+    <style>
+        html,
+        body {
+            min-height: 100%;
+            font-family: -apple-system, 'Avenir', sans-serif;
+            color: rgba(255, 255, 255, 0.75);
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            background: #7b41ba;
+            background-image: linear-gradient(#4e95d7, #7b41ba);
+        }
+        
+        html,
+        body,
+        div,
+        {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        
+        a {
+            color: white;
+        }
+        
+        a:visited {
+            color: white;
+        }
+        
+        #header {
+            color: rgba(255, 255, 255, 0.75);
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+        }
+        
+        #header .inner {
+            -moz-transition: -moz-transform 1.5s ease, opacity 2s ease;
+            -webkit-transition: -webkit-transform 1.5s ease, opacity 2s ease;
+            -ms-transition: -ms-transform 1.5s ease, opacity 2s ease;
+            transition: transform 1.5s ease, opacity 2s ease;
+            -moz-transition-delay: 0.25s;
+            -webkit-transition-delay: 0.25s;
+            -ms-transition-delay: 0.25s;
+            transition-delay: 0.25s;
+            -moz-transform: scale(1);
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+            opacity: 1;
+            position: relative;
+            z-index: 1;
+        }
+        
+        #header:after {
+            -moz-transition: opacity 1s ease;
+            -webkit-transition: opacity 1s ease;
+            -ms-transition: opacity 1s ease;
+            transition: opacity 1s ease;
+            background-image: linear-gradient(45deg, #4fa49a, #4361c2);
+            content: '';
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        
+        #footer {
+            /*            padding: 4em 4em;*/
+        }
+        
+        #img_icon {
+            margin-right: 40px;
+        }
+        
+        #header {
+            /*            padding: 12em 4em;*/
+            
+            background-attachment: scroll;
+        }
+        
+        @media screen and (max-width: 1680px) {
+            body,
+            input,
+            select,
+            textarea {
+                font-size: 14pt;
+            }
+            #header {
+                /*                padding: 6em 0 6em 0;*/
+            }
+        }
+        
+        @media screen and (max-width: 1140px) {
+            #header {
+                /*                padding: 8em 0;*/
+                
+                background-attachment: scroll;
+            }
+            #header br {
+                display: inline;
+            }
+            #footer {
+                /*                padding: 4em 0;*/
+                
+                background-attachment: scroll;
+            }
+        }
+        
+        @media screen and (max-width: 980px) {
+            #header {
+                /*                padding: 10em 3em;*/
+            }
+            #footer {
+                /*                padding: 5em 3em;*/
+            }
+        }
+        
+        @media screen and (max-width: 736px) {
+            body,
+            input,
+            select,
+            textarea {
+                font-size: 12pt;
+            }
+            h1 {
+                font-size: 1.75em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.1em;
+            }
+            h4 {
+                font-size: 1em;
+            }
+            #header {
+                /*                padding: 4em 3em 4em 3em;*/
+            }
+            #footer {
+                /*                padding: 3em 1.5em 3em 1.5em;*/
+            }
+            #img_icon {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            #header {
+                /*                padding: 4em 2em 4em 2em;*/
+            }
+            #footer {
+                /*                padding: 2em 1.5em 2em 1.5em;*/
+            }
+        }
+        
+        @media screen and (max-width: 320px) {
+            #header {
+                /*                padding: 3em 1em 3em 1em;*/
+            }
+            #footer {
+                /*                padding: 2em 1em 2em 1em;*/
+            }
+        }
+    </style>
+</head>
+
+<body style="display:flex; display:-webkit-flex; flex-direction:column; -webkit-flex-direction:column">
+    <section id="header" style="flex-grow:1; -webkit-flex-grow:1; display:flex; display:-webkit-flex; flex-direction:column; -webkit-flex-direction:column">
+        <div style="flex-grow:1; -webkit-flex-grow:1;"></div>
+        <div class="inner" style="margin-top:5em;">
+            <div>
+                <img id="img_icon" style="max-width:80%;" src="img/icon.png" srcset="img/icon.png 1x, img/icon@2x.png 2x">
+                <img id="img_logo" style="max-width:90%;" src="img/logo.png" srcset="img/logo.png 1x, img/logo@2x.png 2x">
+            </div>
+            <div style="margin-top:10px;">
+                <a href="http://store.scopieapp.com"><img id="img_mac_store" src="img/mac_store.svg" style="max-width:90%; margin-top:30px; width:250px;">
+                </a>
+                <p style="opacity:0.5; margin-top:5px;">or <a href="http://download.scopieapp.com/">download directly</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <div style="margin: 20px; flex-grow:1; -webkit-flex-grow:1; display:flex; display:-webkit-flex; flex-direction:column; -webkit-flex-direction:column">
+        <div style="flex-grow:10; -webkit-flex-grow:10;"></div>
+        <p style="margin:0; opacity:0.6;">In the wise words of Ned Flanders,</p>
+        <p style="margin:0; font-size:1.5em; opacity:0.7;">"You better check yourself before you wreck-<i>diddly</i>-wreck yourself!"</p>
+        <div style="flex-grow:1; -webkit-flex-grow:1;"></div>
+    </div>
+    <section id="footer" style="flex-grow:0; -webkit-flex-grow:0;">
+        <p>Made by <a href="http://www.krishan711.com">Krishan</a> &copy; 2015</p>
+    </section>
+
+</body>
+
+</html>

@@ -123,6 +123,10 @@ class CameraViewController: NSViewController, CameraViewDelegate {
         NSApplication.sharedApplication().terminate(sender)
     }
 
+    @IBAction func didTapLink(sender: AnyObject) {
+        NSWorkspace.sharedWorkspace().openURL(NSURL(string:"http://www.scopieapp.com/share.html")!)
+    }
+    
     func showTopBar(animated: Bool = true) {
         self.setBarTopConstraintValue(0, animated:animated)
     }

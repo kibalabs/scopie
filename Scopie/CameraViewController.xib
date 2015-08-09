@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="15A226f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="15A235d" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="CameraViewController" customModule="MenuMirror" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="CameraViewController" customModule="Scopie" customModuleProvider="target">
             <connections>
                 <outlet property="conTopBarTop" destination="0LI-Ol-K0r" id="881-87-JE7"/>
                 <outlet property="vCameraOutput" destination="NR6-SW-N2A" id="2kn-mz-SSk"/>
@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="NR6-SW-N2A" customClass="CameraView" customModule="MenuMirror" customModuleProvider="target">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="NR6-SW-N2A" customClass="CameraView" customModule="Scopie" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
                     <animations/>
                 </customView>
@@ -65,10 +65,13 @@
                         <button translatesAutoresizingMaskIntoConstraints="NO" id="D4k-tL-lph">
                             <rect key="frame" x="80" y="0.0" width="320" height="40"/>
                             <animations/>
-                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="logo" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="udv-oi-tr2">
+                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="logo" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="udv-oi-tr2">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
+                            <connections>
+                                <action selector="didTapLink:" target="-2" id="48H-LR-i0u"/>
+                            </connections>
                         </button>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="KKe-O4-hs5">
                             <rect key="frame" x="40" y="0.0" width="40" height="40"/>
@@ -135,6 +138,6 @@
         <image name="icon_capture" width="25" height="25"/>
         <image name="icon_folder" width="25" height="25"/>
         <image name="icon_quit" width="25" height="25"/>
-        <image name="logo" width="128" height="128"/>
+        <image name="logo" width="50" height="17"/>
     </resources>
 </document>

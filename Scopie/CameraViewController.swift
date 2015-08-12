@@ -69,7 +69,7 @@ class CameraViewController: NSViewController, CameraViewDelegate {
     override func viewWillAppear() {
         super.viewWillAppear()
         self.captureSession.startRunning()
-        self.showTopBar(animated:false)
+        self.showTopBar(animated:true)
         self.hideTopBarAfterDelay()
     }
 
@@ -101,8 +101,10 @@ class CameraViewController: NSViewController, CameraViewDelegate {
                     var data: NSData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
 
                     let paths = NSSearchPathForDirectoriesInDomains(.PicturesDirectory, .UserDomainMask, true)
-                    var ret = data.writeToFile("\(paths[0] as! String)/\(self.IMAGE_CREDIT)-\(self.getShortDateString()).jpg", atomically:true)
-                    println("ret: \(ret)")
+                    var directory = "\(paths[0] as! String)/\(self.IMAGE_CREDIT)"
+                    NSFileManager.defaultManager().createDirectoryAtPath(directory, withIntermediateDirectories:false, attributes:nil, error:nil)
+                    var ret = data.writeToFile("\(directory)/\(self.getShortDateString()).jpg", atomically:true)
+                    println("created image: \(ret)")
 
                     dispatch_async(dispatch_get_main_queue(), {
                         self.runStillImageCaptureAnimation()

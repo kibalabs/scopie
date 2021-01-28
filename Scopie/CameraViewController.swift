@@ -68,7 +68,7 @@ class CameraViewController: NSViewController, CameraViewDelegate {
     }
 
     func deviceWithMediaType(_ mediaType: String, preferringPosition: AVCaptureDevice.Position) -> AVCaptureDevice{
-        var devices = AVCaptureDevice.devices(for: AVMediaType(rawValue: mediaType));
+        let devices = AVCaptureDevice.devices(for: AVMediaType(rawValue: mediaType));
         var captureDevice: AVCaptureDevice = devices[0] ;
 
         for device in devices {

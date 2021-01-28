@@ -16,7 +16,7 @@ protocol CameraViewDelegate {
 
 class CameraView: NSView {
 
-    var trackingRect: NSTrackingRectTag?
+    var trackingRect: NSView.TrackingRectTag?
     var delegate: CameraViewDelegate?
 
     override var frame: CGRect {
@@ -28,15 +28,15 @@ class CameraView: NSView {
         }
     }
 
-    override func mouseEntered(theEvent: NSEvent) {
+    override func mouseEntered(with theEvent: NSEvent) {
         self.delegate?.didEnterHover()
     }
 
-    override func mouseExited(theEvent: NSEvent) {
+    override func mouseExited(with theEvent: NSEvent) {
         self.delegate?.didExitHover()
     }
 
-    override func mouseDown(theEvent : NSEvent) {
+    override func mouseDown(with theEvent : NSEvent) {
         self.delegate?.didClick()
     }
 

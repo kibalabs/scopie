@@ -28,38 +28,35 @@ class CameraViewController: NSViewController, CameraViewDelegate {
 
         // Make everything use layers so view order is preserved
         self.view.wantsLayer = true
-        self.vTopBar.layer?.backgroundColor = NSColor(calibratedRed:0, green:0, blue:0, alpha:0.3).CGColor
+        self.vTopBar.layer?.backgroundColor = NSColor(calibratedRed:0, green:0, blue:0, alpha:0.3).cgColor
 
-        self.captureSession.sessionPreset = AVCaptureSessionPresetHigh
+        self.captureSession.sessionPreset = AVCaptureSession.Preset(rawValue: convertFromAVCaptureSessionPreset(AVCaptureSession.Preset.high))
 
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
-            var videoDevice: AVCaptureDevice! = self.deviceWithMediaType(AVMediaTypeVideo, preferringPosition:.Front)
-            println("videoDevice: \(videoDevice)")
-
-            var error: NSError? = nil
-            var videoDeviceInput: AVCaptureDeviceInput? =  AVCaptureDeviceInput(device:videoDevice, error:&error)
-            println("videoDeviceInput: \(videoDeviceInput)")
-            println("error: \(error)")
-
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: {
+            let videoDevice: AVCaptureDevice = self.deviceWithMediaType(convertFromAVMediaType(AVMediaType.video), preferringPosition:.front);
+            print("videoDevice: \(String(describing: videoDevice))")
+            guard let videoDeviceInput: AVCaptureDeviceInput = try? AVCaptureDeviceInput(device:videoDevice) else {
+                return;
+            }
+            print("videoDeviceInput: \(String(describing: videoDeviceInput))")
             if self.captureSession.canAddInput(videoDeviceInput) {
-                println("adding video input")
+                print("adding video input")
                 self.captureSession.addInput(videoDeviceInput)
                 self.videoDeviceInput = videoDeviceInput
-
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self.previewLayer = AVCaptureVideoPreviewLayer(session:self.captureSession)
                     self.previewLayer?.frame = self.vCameraOutput.bounds
-                    self.previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-                    self.previewLayer?.setAffineTransform(CGAffineTransformMakeScale(-1, 1))
+                    self.previewLayer?.videoGravity = AVLayerVideoGravity(rawValue: convertFromAVLayerVideoGravity(AVLayerVideoGravity.resizeAspectFill))
+                    self.previewLayer?.setAffineTransform(CGAffineTransform(scaleX: -1, y: 1))
                     self.vCameraOutput.wantsLayer = true
-                    self.vCameraOutput.layer?.addSublayer(self.previewLayer)
+                    self.vCameraOutput.layer?.addSublayer(self.previewLayer!)
                 })
             }
 
             self.stillImageOutput = AVCaptureStillImageOutput()
-            if self.captureSession.canAddOutput(self.stillImageOutput){
+            if self.captureSession.canAddOutput(self.stillImageOutput!){
                 self.stillImageOutput!.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
-                self.captureSession.addOutput(self.stillImageOutput)
+                self.captureSession.addOutput(self.stillImageOutput!)
             }
         });
 
@@ -69,7 +66,7 @@ class CameraViewController: NSViewController, CameraViewDelegate {
     override func viewWillAppear() {
         super.viewWillAppear()
         self.captureSession.startRunning()
-        self.showTopBar(animated:true)
+        self.showTopBar(true)
         self.hideTopBarAfterDelay()
     }
 
@@ -78,13 +75,13 @@ class CameraViewController: NSViewController, CameraViewDelegate {
         self.captureSession.stopRunning()
     }
 
-    func deviceWithMediaType(mediaType: String, preferringPosition: AVCaptureDevicePosition) -> AVCaptureDevice{
-        var devices = AVCaptureDevice.devicesWithMediaType(mediaType);
-        var captureDevice: AVCaptureDevice = devices[0] as! AVCaptureDevice;
+    func deviceWithMediaType(_ mediaType: String, preferringPosition: AVCaptureDevice.Position) -> AVCaptureDevice{
+        var devices = AVCaptureDevice.devices(for: AVMediaType(rawValue: mediaType));
+        var captureDevice: AVCaptureDevice = devices[0] ;
 
         for device in devices {
-            if device.position == preferringPosition {
-                captureDevice = device as! AVCaptureDevice
+            if (device as AnyObject).position == preferringPosition {
+                captureDevice = device 
                 break
             }
         }
@@ -92,58 +89,73 @@ class CameraViewController: NSViewController, CameraViewDelegate {
         return captureDevice
     }
 
-    @IBAction func didTapCapture(sender: AnyObject) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
-            let videoOrientation = self.previewLayer!.connection.videoOrientation
-            self.stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo).videoOrientation = videoOrientation
-            self.stillImageOutput!.captureStillImageAsynchronouslyFromConnection(self.stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo), completionHandler: { (imageDataSampleBuffer: CMSampleBuffer!, error: NSError!) in
-                if error == nil {
-                    var data: NSData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
-
-                    let paths = NSSearchPathForDirectoriesInDomains(.PicturesDirectory, .UserDomainMask, true)
-                    var directory = "\(paths[0] as! String)/\(self.IMAGE_CREDIT)"
-                    NSFileManager.defaultManager().createDirectoryAtPath(directory, withIntermediateDirectories:false, attributes:nil, error:nil)
-                    var ret = data.writeToFile("\(directory)/\(self.getShortDateString()).jpg", atomically:true)
-                    println("created image: \(ret)")
-
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.runStillImageCaptureAnimation()
-                    })
-                } else {
-                    println(error)
+    @IBAction func didTapCapture(_ sender: AnyObject) {
+        guard let stillImageOutput = self.stillImageOutput else {
+            return;
+        }
+        guard let previewLayerConnection = self.previewLayer?.connection else {
+            return;
+        }
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: {
+            guard let videoConnection = stillImageOutput.connection(with: AVMediaType.video) else {
+                return;
+            }
+            videoConnection.videoOrientation = previewLayerConnection.videoOrientation;
+            stillImageOutput.captureStillImageAsynchronously(from: videoConnection) { (imageDataSampleBuffer: CMSampleBuffer?, error: Error?) in
+                if let error = error {
+                    print(error);
+                    return;
                 }
-            })
+                guard let imageDataSampleBuffer = imageDataSampleBuffer else {
+                    print("imageDataSampleBuffer is nil")
+                    return;
+                }
+                guard let data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer) else {
+                    print("failed to extract data")
+                    return;
+                }
+
+                let paths = NSSearchPathForDirectoriesInDomains(.picturesDirectory, .userDomainMask, true)
+                let directory = "\(paths[0] )/\(self.IMAGE_CREDIT)"
+                try? FileManager.default.createDirectory(atPath: directory, withIntermediateDirectories:false, attributes:nil)
+                let ret = (try? data.write(to: URL(fileURLWithPath: "\(directory)/\(self.getShortDateString()).jpg"), options: [.atomic])) != nil
+                print("created image: \(ret)")
+
+                DispatchQueue.main.async(execute: {
+                    self.runStillImageCaptureAnimation()
+                })
+            };
         })
     }
 
-    @IBAction func didTapOpenFolder(sender: AnyObject) {
-        let paths = NSSearchPathForDirectoriesInDomains(.PicturesDirectory, .UserDomainMask, true)
-        NSWorkspace.sharedWorkspace().activateFileViewerSelectingURLs([paths[0]])
+    @IBAction func didTapOpenFolder(_ sender: AnyObject) {
+        let paths = NSSearchPathForDirectoriesInDomains(.picturesDirectory, .userDomainMask, true)
+        NSWorkspace.shared.activateFileViewerSelecting([URL(fileURLWithPath: paths[0])])
     }
 
-    @IBAction func didTapQuit(sender: AnyObject) {
-        NSApplication.sharedApplication().terminate(sender)
+    @IBAction func didTapQuit(_ sender: AnyObject) {
+        NSApplication.shared.terminate(sender)
     }
 
-    @IBAction func didTapLink(sender: AnyObject) {
-        NSWorkspace.sharedWorkspace().openURL(NSURL(string:"http://www.scopieapp.com/share.html")!)
+    @IBAction func didTapLink(_ sender: AnyObject) {
+        NSWorkspace.shared.open(URL(string:"https://www.scopieapp.com")!)
     }
     
-    func showTopBar(animated: Bool = true) {
+    func showTopBar(_ animated: Bool = true) {
         self.setBarTopConstraintValue(0, animated:animated)
     }
 
     func hideTopBarAfterDelay() {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(3 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
             self.hideTopBar()
         })
     }
 
-    func hideTopBar(animated: Bool = true) {
+    func hideTopBar(_ animated: Bool = true) {
         self.setBarTopConstraintValue(-self.vTopBar.frame.height, animated:animated)
     }
 
-    private func setBarTopConstraintValue(constraintValue: CGFloat, animated: Bool = true) {
+    fileprivate func setBarTopConstraintValue(_ constraintValue: CGFloat, animated: Bool = true) {
         self.conTopBarTop.constant = constraintValue
         NSAnimationContext.runAnimationGroup({ (context: NSAnimationContext!) -> Void in
             context.duration = animated ? 0.3 : 0
@@ -154,9 +166,9 @@ class CameraViewController: NSViewController, CameraViewDelegate {
     }
 
     func getShortDateString() -> String {
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
-        return formatter.stringFromDate(NSDate())
+        return formatter.string(from: Date())
     }
 
     func runStillImageCaptureAnimation() {
@@ -164,7 +176,7 @@ class CameraViewController: NSViewController, CameraViewDelegate {
         animation.fromValue = 0
         animation.toValue = 1
         animation.duration = 0.3
-        self.vCameraOutput.layer?.addAnimation(animation, forKey:animation.keyPath)
+        self.vCameraOutput.layer?.add(animation, forKey:animation.keyPath)
     }
 
     func didEnterHover() {
@@ -179,4 +191,19 @@ class CameraViewController: NSViewController, CameraViewDelegate {
         self.didTapCapture(self.vCameraOutput)
     }
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVCaptureSessionPreset(_ input: AVCaptureSession.Preset) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVMediaType(_ input: AVMediaType) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVLayerVideoGravity(_ input: AVLayerVideoGravity) -> String {
+	return input.rawValue
 }

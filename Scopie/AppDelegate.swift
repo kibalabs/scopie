@@ -11,56 +11,47 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
+    let statusItem = NSStatusBar.system.statusItem(withLength: -2)
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
 
-    func applicationDidFinishLaunching(notification: NSNotification) {
-        if (NSAppKitVersionNumber <= Double(NSAppKitVersionNumber10_10)) {
-            self.statusItem.image = NSImage(named:"menu_icon_glasses")
-            self.statusItem.action = Selector("togglePopover:")
-        } else {
-            if let button = self.statusItem.button {
-                button.image = NSImage(named:"menu_icon_glasses")
-                button.action = Selector("togglePopover:")
-            }
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        if let button = self.statusItem.button {
+            button.image = NSImage(named:"menu_icon_glasses")
+            button.action = #selector(AppDelegate.togglePopover(_:))
         }
 
         self.popover.contentViewController = CameraViewController(nibName:"CameraViewController", bundle:nil)
 
-        self.eventMonitor = EventMonitor(mask: .LeftMouseDownMask | .RightMouseDownMask) { [unowned self] event in
-            if self.popover.shown {
+        self.eventMonitor = EventMonitor(mask: [NSEvent.EventTypeMask.leftMouseDown, NSEvent.EventTypeMask.rightMouseDown]) { event in
+            if self.popover.isShown {
                 self.closePopover(event)
             }
         }
         self.eventMonitor?.start()
     }
 
-    func applicationDidBecomeActive(notification: NSNotification) {
-        if (NSAppKitVersionNumber <= Double(NSAppKitVersionNumber10_10)) {
-
-        } else {
-            self.togglePopover(self.statusItem.button)
-        }
+    func applicationDidBecomeActive(_ notification: Notification) {
+        self.togglePopover(self.statusItem.button)
     }
 
-    func togglePopover(sender: AnyObject?) {
-        println("togglePopover: \(sender)")
-        if self.popover.shown {
+    @objc func togglePopover(_ sender: AnyObject?) {
+        print("togglePopover: \(String(describing: sender))")
+        if self.popover.isShown {
             self.closePopover(sender)
         } else {
             self.showPopover(sender)
         }
     }
 
-    func showPopover(sender: AnyObject?) {
+    func showPopover(_ sender: AnyObject?) {
         if let button = self.statusItem.button {
-            self.popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSMinYEdge)
+            self.popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
         self.eventMonitor?.start()
     }
 
-    func closePopover(sender: AnyObject?) {
+    func closePopover(_ sender: AnyObject?) {
         self.popover.performClose(sender)
         self.eventMonitor?.stop()
     }

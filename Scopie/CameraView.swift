@@ -1,11 +1,3 @@
-//
-//  CameraView.swift
-//  MenuMirror
-//
-//  Created by Krishan Patel on 30/07/2015.
-//  Copyright (c) 2015 Rocko Labs. All rights reserved.
-//
-
 import Cocoa
 
 protocol CameraViewDelegate {

@@ -1,11 +1,3 @@
-//
-//  CameraViewController.swift
-//  
-//
-//  Created by Krishan Patel on 29/07/2015.
-//
-//
-
 import Cocoa
 import AVFoundation
 import AVKit
@@ -81,7 +73,7 @@ class CameraViewController: NSViewController, CameraViewDelegate {
 
         for device in devices {
             if (device as AnyObject).position == preferringPosition {
-                captureDevice = device 
+                captureDevice = device
                 break
             }
         }
@@ -140,7 +132,7 @@ class CameraViewController: NSViewController, CameraViewDelegate {
     @IBAction func didTapLink(_ sender: AnyObject) {
         NSWorkspace.shared.open(URL(string:"https://www.scopieapp.com")!)
     }
-    
+
     func showTopBar(_ animated: Bool = true) {
         self.setBarTopConstraintValue(0, animated:animated)
     }
